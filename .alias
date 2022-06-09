@@ -1,0 +1,7 @@
+alias k=kubectl
+alias t=terraform
+alias tia='terraform init && terraform apply'
+alias ti='terraform init'
+alias cl=clear
+alias gs='git status'
+alias krew='kubectl-krew'

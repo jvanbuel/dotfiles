@@ -1,6 +1,7 @@
+#zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jvanbuel/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -8,7 +9,7 @@ export ZSH="/Users/jvanbuel/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="mh"
 # Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -50,31 +51,31 @@ bindkey -v
 bindkey 'TAB-H' run-help
 
 export PATH=/usr/local/bin/aws_completer:$PATH
-export GOPATH=/Users/jvanbuel/go
+export GOPATH=$HOME/go
 
 source ~/.dircolors
-export PATH=/usr/local/bin/aws_completer:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/jvanbuel/go/bin
+export PATH=/usr/local/bin/aws_completer:$PATH
 
 # SDKman setup
-export SDKMAN_DIR="/Users/jvanbuel/.sdkman"
-[[ -s "/Users/jvanbuel/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jvanbuel/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-export PATH=/Users/jvanbuel/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
 source ~/.alias
 
-# Add pyenv shims to path
-eval "$(pyenv init - --path)"
-
 # Add asdf shims to path
-. /usr/local/opt/asdf/libexec/asdf.sh
+if [[ -s /usr/local/opt/asdf/libexec/asdf.sh ]]; then
+        source /usr/local/opt/asdf/libexec/asdf.sh
+fi
 
 # Add poetry to path
 export PATH="$HOME/.poetry/bin:$PATH"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/jvanbuel/.rd/bin:$PATH"
+export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+#zprof
