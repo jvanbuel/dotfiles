@@ -1,0 +1,28 @@
+
+if !has('gui_running')
+  set t_Co=256
+endif
+
+colorscheme badwolf
+
+filetype plugin on
+syntax on
+
+
+
+set number
+set showcmd
+set cursorline          " highlight current line
+set wildmenu
+
+set tabstop=4
+set softtabstop=4
+set expandtab
+
+filetype indent on
+
+set incsearch           " search as characters are entered
+set hlsearch
+
+nnoremap j gj
+nnoremap k gk
