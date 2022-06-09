@@ -24,11 +24,9 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
     aws
     git
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-    zsh-completions
     vi-mode
         )
+
 # completion
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
@@ -78,4 +76,6 @@ export PATH="$HOME/.poetry/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #zprof
