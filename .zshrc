@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 #zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # Path to your oh-my-zsh installation.
@@ -79,3 +81,6 @@ export PATH="$HOME/.rd/bin:$PATH"
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #zprof
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
