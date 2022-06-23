@@ -1,5 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 #zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # Path to your oh-my-zsh installation.
@@ -51,7 +51,9 @@ bindkey -v
 bindkey 'TAB-H' run-help
 
 export PATH=/usr/local/bin/aws_completer:$PATH
+
 export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOPATH:$PATH
 
 source ~/.dircolors
 export PATH=/usr/local/bin/aws_completer:$PATH
@@ -83,4 +85,4 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #zprof
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
