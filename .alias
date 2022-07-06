@@ -5,3 +5,4 @@ alias ti='terraform init'
 alias cl=clear
 alias gs='git status'
 alias krew='kubectl-krew'
+alias vim=nvim
