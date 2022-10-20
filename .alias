@@ -6,3 +6,6 @@ alias cl=clear
 alias gs='git status'
 alias krew='kubectl-krew'
 alias vim=nvim
+alias j=autojump
+alias jqq="~/jqq/jqq.rb"
+alias pat="~/pattrick-rs/pattrick"
