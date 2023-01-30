@@ -10,3 +10,4 @@ alias j=autojump
 alias jqq="~/jqq/jqq.rb"
 alias pat="~/pattrick-rs/pattrick"
 alias cat="bat"
+alias ls="exa"

@@ -101,6 +101,8 @@ export PATH="/usr/local/sbin:$PATH"
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/local/opt/asdf/libexec/asdf.sh
 
+eval "$(zoxide init zsh)"
+
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
