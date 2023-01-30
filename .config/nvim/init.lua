@@ -443,7 +443,7 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 local c = require('vscode.colors').get_colors()
 require('vscode').setup({
   -- Enable transparent background
-  transparent = true,
+  transparent = false,
 
   -- Enable italic comment
   italic_comments = true,
