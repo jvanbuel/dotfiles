@@ -13,6 +13,8 @@ require('packer').startup(function(use)
 
   use 'rust-lang/rust.vim'
   use 'rust-lang-nursery/rustfmt'
+  use 'hashivim/vim-terraform'
+  use 'juliosueiras/vim-terraform-completion'
 
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -465,6 +467,14 @@ require('vscode').setup({
 })
 
 vim.g.rustfmt_autosave = 1
+require 'lspconfig'.terraformls.setup {}
 
+-- Terraform config
+require 'lspconfig'.tflint.setup {}
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.tf", "*.tfvars" },
+  callback = function() vim.lsp.buf.format({ async = true }) end,
+})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
