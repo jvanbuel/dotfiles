@@ -1,0 +1,6 @@
+[font]
+normal = { family = "Hack Nerd Font", style = "Regular" }
+size = 13
+
+[shell]
+program = "/opt/homebrew/bin/tmux"
