@@ -1,5 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -76,11 +76,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 source ~/.alias
 
-# Add asdf shims to path
-if [[ -s /usr/local/opt/asdf/libexec/asdf.sh ]]; then
-        source /usr/local/opt/asdf/libexec/asdf.sh
-fi
-
 # Add poetry to path
 export PATH="$HOME/.poetry/bin:$PATH"
 
@@ -99,13 +94,15 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="/usr/local/sbin:$PATH"
 
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-source /usr/local/opt/asdf/libexec/asdf.sh
 
 eval "$(zoxide init zsh)"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 eval "$(/opt/homebrew/bin/mise activate zsh)"
+
+eval "$(atuin init zsh)"
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
