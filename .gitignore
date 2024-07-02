@@ -1,0 +1,7 @@
+*
+!~/.zshrc
+
+
+# Added by cargo
+
+/target
