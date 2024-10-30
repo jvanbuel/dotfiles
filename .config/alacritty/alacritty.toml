@@ -2,5 +2,7 @@
 normal = { family = "Hack Nerd Font", style = "Regular" }
 size = 13
 
-[shell]
+[terminal]
+
+[terminal.shell]
 program = "/opt/homebrew/bin/tmux"
