@@ -1,14 +1,6 @@
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
@@ -50,7 +42,6 @@ ZSH_DISABLE_COMPFIX="true"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -60,51 +51,37 @@ export LANG=en_US.UTF-8
 bindkey -v
 bindkey 'TAB-H' run-help
 
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOPATH:$PATH
-
-source ~/.dircolors
-export PATH=/usr/local/bin/aws_completer:$PATH
-
 # SDKman setup
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-export PATH=$HOME/.local/bin:$PATH
-
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-source ~/.alias
-
-# Add poetry to path
-export PATH="$HOME/.poetry/bin:$PATH"
-
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/beheerder/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-#zprof
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOPATH:$PATH
 export PATH="/usr/local/sbin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$HOME/.local/bin:$PATH
+
+CERT_PATH=/etc/ssl/certs/cacert.pem
+export SSL_CERT_FILE=${CERT_PATH}
+export REQUESTS_CA_BUNDLE=${CERT_PATH} export AWS_CA_BUNDLE=${CERT_PATH}
+
+export HOMEBREW_AUTO_UPDATE_SECS=432000 # 5 days
+
+# Alias definitions
+source ~/.alias
 
 eval "$(zoxide init zsh)"
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
 eval "$(/opt/homebrew/bin/mise activate zsh)"
-
 eval "$(atuin init zsh)"
-
-
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+eval "$(starship init zsh)"
