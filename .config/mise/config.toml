@@ -1,0 +1,7 @@
+[settings]
+python_compile = true
+idiomatic_version_file_enable_tools = ["python"]
+
+[tools]
+python = "3.13"
+terraform = "1.14.0"

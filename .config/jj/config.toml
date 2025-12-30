@@ -1,0 +1,67 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+[user]
+name = "Jan Vanbuel"
+email = "jan.vanbuel@ond.vlaanderen.be"
+
+[ui]
+editor = "nvim"
+default-command = "log"
+
+[aliases]
+push = [
+  "util",
+  "exec",
+  "--",
+  "uvx",
+  "--with",
+  "pre-commit",
+  "jj-pre-push",
+  "--log-level=INFO",
+  "push",
+]
+check = [
+  "util",
+  "exec",
+  "--",
+  "uvx",
+  "--with",
+  "pre-commit",
+  "jj-pre-push",
+  "--log-level=INFO",
+  "check",
+]
+
+# tug - move the nearest bookmark to the nearest non-empty change at or before @
+tug = [
+  "bookmark",
+  "move",
+  "--from",
+  "closest_bookmark(@)",
+  "--to",
+  "closest_nonempty(@)",
+]
+
+# sync - move the nearest bookmark and current git branch to the nearest non-empty change at or before @
+sync = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+jj tug
+git switch `jj closestbookmark`
+""", ""]
+
+# closestbookmark - show the name of the nearest bookmark at or before @
+closestbookmark = [
+  "util",
+  "exec",
+  "--",
+  "bash",
+  "-c",
+  """
+jj log --no-graph -r 'closest_bookmark(@)' -T 'stringify(local_bookmarks.map(|b| b.name()).join("\n")).first_line()++"\n"'
+""",
+  "",
+]
+
+[revset-aliases]
+
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+'closest_nonempty(to)' = 'heads(::to ~ empty())'
